@@ -4,8 +4,7 @@ import aboutstyles from "./aboutstyles";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Logo2 from "../../assets/icons/logo2";
-import Teampage from "../Team/teampage";
-import Teamswiper from "../Team/TeamSwiper";
+
 
 export default function Aboutpage(props) {
   // eslint-disable-next-line react/prop-types
@@ -49,10 +48,6 @@ export default function Aboutpage(props) {
               ))}
             </Grid2>
           </Box>
-       
-           {/* <Teampage ourteam="Our Team"/>  */}
-          
-          {/* <Teamswiper/> */}
         </Box>
         </Box>
         
