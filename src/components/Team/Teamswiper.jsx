@@ -14,7 +14,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
-export default function TeamSwiper(props) {
+export default function Teamswiper(props) {
   const{ourteam,data}=props;
     const theme = useTheme(); 
     const styles = Swiperstyles(theme);

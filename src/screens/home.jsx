@@ -8,7 +8,7 @@ import Initiative from "../assets/icons/initiative";
 import Sustainability from "../assets/icons/sustainability";
 import Integrity from "../assets/icons/integrity";
 import { Grid2 } from "@mui/material";
-import TeamSwiper from "../components/Team/TeamSwiper";
+import TeamSwiper from "../components/Team/Teamswiper.jsx";
 import Investmentpage from "../components/investment/investmentpage";
 import Image1 from '../assets/images/image1';
 import Image2 from '../assets/images/image2';
