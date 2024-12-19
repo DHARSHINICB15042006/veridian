@@ -78,7 +78,7 @@ const Swiperstyles = (theme) => ({
   },
   namebox:{
       marginLeft:"5%",
-      border:"1px solid",
+      //border:"1px solid",
       width:"fit-content",
       // marginTop%"
       
