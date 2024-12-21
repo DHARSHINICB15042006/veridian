@@ -4,11 +4,11 @@ import investmentstyles from "./investmentstyles";
 import { useTheme } from "@mui/material/styles";
 
 export default function Investmentpage(props) {
-  const { head,data } = props;
+  const { id,head,data } = props;
   const theme = useTheme();
   const styles = investmentstyles(theme);
   return (
-    <Box sx={styles.wholebox}>
+    <Box id={props.id} sx={styles.wholebox}>
     <Box sx={styles.investmentbox}>
       <Box sx={styles.investheadingbox}>
         <Typography sx={styles.investtxt}>

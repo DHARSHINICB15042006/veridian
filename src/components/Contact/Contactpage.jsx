@@ -7,12 +7,13 @@ import Box from '@mui/material/Box';
 import Contactarrow from '../../assets/icons/Contactarrow';
 
 export default function Contactpage(props) {
-    const{contactus,description,mail,mailid,help}=props;
+    
+    const{id,contactus,description,mail,mailid,help}=props;
     
       const theme = useTheme(); 
       const styles = Contactstyles(theme);
   return (
-    <Box sx={styles.wholebox}>
+    <Box id={props.id} sx={styles.wholebox}>
       <Box sx={styles.contactcontainer}>
                <Box sx={styles.contactcontent}>
                 

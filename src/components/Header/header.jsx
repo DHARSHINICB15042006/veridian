@@ -1,31 +1,33 @@
   import React, { useState } from 'react';
-  import Logo from '../assets/icons/logo';
+  import Logo from '../../assets/icons/logo';
   import Styles from "./styles";
   import Grid2 from '@mui/material/Grid2';
   import { useTheme } from '@mui/material/styles';
   import Button from '@mui/material/Button';
-  import MenuIcon from '../assets/icons/menu';
+  import MenuIcon from '../../assets/icons/menu';
 
 
 
   export default function Header(props) {
     const{
       // eslint-disable-next-line react/prop-types
-      home,abouttxt,team,invest,contact
-    }=props;
+      id,home,abouttxt,team,invest,contact,onButtonClick 
+    } =props;
     const theme = useTheme(); 
     const styles = Styles(theme);
-    const [activeButton, setActiveButton] = useState('home');
+     const [activeButton, setActiveButton] = useState('home');
     const[menuOpen,setMenuOpen]=useState(false)
 
     const handleButtonClick = (buttonName) => {
-      setActiveButton(buttonName);
+      setActiveButton(buttonName); 
+      onButtonClick(buttonName); 
     };
+    
 
 
     return (
       <>
-      <Grid2 sx={styles.headerbox} container alignItems="center">
+      <Grid2 id={props.id} sx={styles.headerbox} container alignItems="center">
       <Grid2 sx={styles.logo} item> 
           <Logo/>
         </Grid2>  
@@ -42,12 +44,12 @@
                 ...styles.buttontxt,
                 ...(activeButton === 'home' ? styles.activeButton : styles.buttontxt),
               }}>{home}</Button>
-        <Button onClick={() => handleButtonClick('about')}
+        <Button onClick={() =>handleButtonClick('about')}
               sx={{
                 ...styles.buttontxt,
                 ...(activeButton === 'about' ? styles.activeButton : styles.buttontxt),
               }}>{abouttxt}</Button>
-        <Button onClick={() => handleButtonClick('team')}
+        <Button onClick={() =>  handleButtonClick('team')}
               sx={{
                 ...styles.buttontxt,
                 ...(activeButton === 'team' ? styles.activeButton : styles.buttontxt),

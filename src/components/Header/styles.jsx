@@ -1,16 +1,16 @@
-import background from '../assets/shapes/rectangle1';
 
 const Styles = (theme) => ({
   headerbox: {
-    position: "sticky",
+    position: "fixed",
+    zIndex: 5,
     display: "flex",
     top: 0,
     width: "100%",
     borderBottom: "2px solid",
     color: theme.palette.line.line2,
     alignItems: "center",
-    // zIndex: 100,
     backgroundColor: theme.palette.default.white,
+   
   },
   logo: {
     marginLeft: "10%",

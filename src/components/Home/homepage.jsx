@@ -10,13 +10,13 @@ import Arrowicon from '../../assets/icons/arrow';
 export default function Homepage(props) {
   const{
     // eslint-disable-next-line react/prop-types
-    investtop,heading,know
+    id,investtop,heading,know
     
   }=props;
   const theme = useTheme(); 
   const styles = homestyles(theme);
   return (
-    <Box sx={styles.wholebox}>
+    <Box id={props.id} sx={styles.wholebox}>
     <Box sx={styles.rec}>
       
 

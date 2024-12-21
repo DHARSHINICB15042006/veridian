@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/header";
+import Header from "../components/Header/header.jsx";
 import Homepage from "../components/Home/homepage";
 import Aboutpage from "../components/About/aboutpage";
 import Box from "@mui/material/Box";
@@ -16,8 +16,28 @@ import Image3 from '../assets/images/image3';
 import Contactpage from "../components/Contact/Contactpage";
 import Julianimage from '../assets/images/image 5.svg';
 import GrahameJacksonimage from '../assets/images/GrahameJackson.svg';
-import PeterMontegriffoimage from '../assets/images/Peter Montegriffo.svg'
-export default function Home() {
+import PeterMontegriffoimage from '../assets/images/Peter Montegriffo.svg';
+import { create } from "zustand";
+
+const useStore = create((set) => ({
+    activeSection: "",
+    setActiveSection: (section) => set({ activeSection: section }),
+  }));
+  
+  export default function Home() {
+    const { setActiveSection } = useStore(); 
+  
+    const handleScroll = (section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        console.log(`Scrolling to ${section}`);
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActiveSection(section);
+      } else {
+        console.log(`Element with id ${section} not found.`);
+      }
+    };
+    
     const info = [
         {
             id: 1,
@@ -53,7 +73,7 @@ export default function Home() {
           },
           {
             id: 2,
-            name: "Julian",
+            name: "Julian Jarvis",
             role: "Chairman, Founder and CEO",
             description: "Julian is an experienced lawyer, businessman and investor with over 25 years of start-up, private and public company experience. In the internet and iGaming industries – including America Online Inc., AOL Time Warner Inc., PartyGaming Plc and other companies. Julian has a focus on fast growth companies in emerging regulatory environments. Julian's current focus is as CEO and co-founder of Pragmatic Play, a leading multi-award winning supplier to the international iGaming and betting industries.",
             image: Julianimage, 
@@ -61,7 +81,8 @@ export default function Home() {
           {
             id: 3,
             name: "Peter Montegriffo KC",
-            description: "Peter Montegriffo KC has been closely involved in advising major financial services and e-commerce operators establishing a presence in Gibraltar and expanding their activities internationally. This has included working with investment groups and private client family offices.In his capacity as a Consultant at Hassans and member of the firm’s Corporate & Commercial team for over 35 years, Peter’s area of expertise is in Gibraltar and international commercial and private client matters. Peter has worked on a number of public listings on the London Stock Exchange. He continues to advise on restructuring, merger and consolidation exercises. He has also been involved in drafting numerous changes to Gibraltar’s legislation in trusts, financial services and gaming. Peter was Gibraltar’s Minister for Trade and Industry, with responsibility for economic development and financial services, between May 1996 and February 2000.  Peter was appointed KC in Gibraltar in June 2014.",
+            description: "Peter Montegriffo KC has been closely involved in advising major financial services and e-commerce operators establishing a presence in Gibraltar and expanding their activities internationally. This has included working with investment groups and private client family offices.In his capacity as a Consultant at Hassans and member of the firm’s Corporate & Commercial team for over 35 years, Peter’s area of expertise is in Gibraltar and international commercial and private client matters.",
+            description2:"Peter has worked on a number of public listings on the London Stock Exchange. He continues to advise on restructuring, merger and consolidation exercises. He has also been involved in drafting numerous changes to Gibraltar’s legislation in trusts, financial services and gaming. Peter was Gibraltar’s Minister for Trade and Industry, with responsibility for economic development and financial services, between May 1996 and February 2000.  Peter was appointed KC in Gibraltar in June 2014.",
             image: PeterMontegriffoimage,
           },
     ]
@@ -94,19 +115,19 @@ export default function Home() {
     ]
 
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", width: "100%", overflowX: "hidden" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", width: "100%", overflowX: "hidden"}}>
             <Header
                 home="Home"
                 abouttxt="About Us"
                 team="Our Team"
                 invest="Investment Approach"
                 contact="Contact Us"
+                onButtonClick={handleScroll}
             />
 
-            <Grid2 container direction="column" sx={{ flexGrow: 1 }}>
+            <Grid2 container direction="column" sx={{ flexGrow: 1 ,overflowY:"auto" }}>
                
-                    <Homepage
-                        id="/"
+                    <Homepage id="home"
                         investtop="INVESTMENT MANAGEMENT"
                         heading="Empowering Investments With Expertise and Strategy"
                         know="Know more"
@@ -115,6 +136,7 @@ export default function Home() {
 
                
                     <Aboutpage
+                     id="about"
                         aboutus="About Us"
                         text1="Veridian is an investment, management and development company based in Gibraltar. We create value in our investments by leveraging our own experience, using tried-and-true strategies and extensive industry expertise."
                         text2="We work with our business management team to develop and implement tailored strategies focused on strong products with powerful sales, to develop profit generating growth models. Value creation is fundamental to our goal and we develop our businesses with this in mind."
@@ -124,14 +146,17 @@ export default function Home() {
               
 
                 <TeamSwiper
+                id="team"
                 ourteam="Our Team"
                 data={teamdata}
                 />
                 <Investmentpage 
+                id="invest"
                 head="Holistic Investment Approach"
                 data={investdata}
                 />
                 <Contactpage 
+                id="contact"
                 contactus="Contact Us"
                 description="Have questions or need more information? Reach out to us at."
                 mail="MAIL TO"

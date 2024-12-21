@@ -2,7 +2,7 @@ import { border, padding, textAlign } from "@mui/system";
 import bg from "../../assets/images/Group 62.png"
 
 const homestyles = (theme) => ({
-    wholebox:{display:"flex",justifyContent:"center", width: "97.7vw"},
+    wholebox:{display:"flex",justifyContent:"center", width: "97.5vw",},
     rec: {
         
         width:"90%",
@@ -13,7 +13,7 @@ const homestyles = (theme) => ({
         justifyContent:"center",
         alignItems:"center",
         flexDirection:"column",
-        marginTop:"5%",
+        marginTop:"11%",
         backgroundSize:"cover",
         backgroundPosition:"center",   
       },

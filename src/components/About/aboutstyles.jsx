@@ -1,8 +1,9 @@
-import { border, height, maxHeight, maxWidth } from "@mui/system";
+import { border, display, height, maxHeight, maxWidth } from "@mui/system";
 import aboutbg from "../../assets/images/AboutUsbg.svg";
 const aboutstyles = (theme) => ({
   wholebox:{
-    display:"flex",justifyContent:"center",width: "97.7vw"
+    display:"flex",justifyContent:"center",maxWidth: "97.7vw",overflow: "hidden"
+
   },
       aboutus: {
         display: "flex",
@@ -28,9 +29,10 @@ const aboutstyles = (theme) => ({
         backgroundImage: `url(${aboutbg})`,
         backgroundSize : "cover",
         backgroundRepeat: "no-repeat",
-      
-        height: "52em",
-        
+       // height: "52em", 
+        overflow: "hidden"
+
+       // border:"1px solid"
       },
       logopara: {
         display: "flex",
@@ -40,9 +42,12 @@ const aboutstyles = (theme) => ({
         padding: "2%",
         paddingTop: "4%",
         paddingBottom: "4%",
-        width: "80%",
-        
+        maxWidth: "80%",
         backgroundColor: theme.palette.default.white,
+        [theme.breakpoints.down(750)]: {
+          flexDirection:"column",
+          
+        },
       },
       logoimg: {
         backgroundColor: theme.palette.secondary.a50,
@@ -60,6 +65,10 @@ const aboutstyles = (theme) => ({
         lineHeight: "20px",
         //fontFamily:theme.typography.text.font1,
         color: theme.palette.text.textsecondary,
+        [theme.breakpoints.down(750)]: {
+          paddingLeft:"5%"
+          
+        },
       },
       nooftext: {
         paddingRight: "20px",
@@ -70,28 +79,49 @@ const aboutstyles = (theme) => ({
       },
       individualgrid:{
         backgroundColor:'white',
-        width:'49%',
         padding:'1.5%',
         paddingBottom:'0.5%',
-        paddingLeft:'2%'
+        paddingLeft:'2%',
+        [theme.breakpoints.down(750)]: {
+          width: '100%', 
+        },
         
+        //border:"1px solid",
+      
       },
       wholegrid:{
-       
-        width:'85%',
-        
-        marginLeft:'8%'
+        maxWidth:'84%',
+        marginLeft:'8%',
+        //border:"1px solid"
       },
-      fouricons:{
-         transform: 'translateY(-25px)',
-        
+     individualcontent:{
+       display: "flex",
+       flexDirection:"column",
+        gap: "16px" 
+     },
+      fouricons: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '10px', 
+        height: 'auto', 
+        maxHeight: '100%', 
       },
+      
       headingtxt:{
         fontSize:'20px',
         fontWeight:500,
         lineHeight:'22px',
         color:theme.palette.secondary.a30,
         fontFamily:theme.typography.text.font2,
+      },
+      txtandicons:{
+        width: "100%",
+        display: "flex",
+        [theme.breakpoints.down(750)]: {
+          flexDirection:"column",
+          
+        },
       },
       gridpara:{
         fontSize:'14px',
